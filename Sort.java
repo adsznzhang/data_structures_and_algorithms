@@ -5,14 +5,18 @@
  * @author xyu974
  * @version 1.0
  **/
-public interface Sort {
+public class Sort {
+	
+	private int count;
 	
 	/**
 	 * Returns the number of array assignment operations 
 	 * performed by this class since the count variable was reset. 
 	 * @return the number of assignments
 	 **/
-	public int getCount();
+	public int getCount() {
+		return count;
+	}
 	
 	/**
 	 * Executes the insertion sort algorithm 
@@ -39,5 +43,7 @@ public interface Sort {
 	/**
 	 * Resets the counter variable to 0 
 	 **/
-	public void reset();
+	public void reset() {
+		count = 0;
+	}
 }
