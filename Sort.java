@@ -31,7 +31,38 @@ public class Sort {
 	 * There is no return as the parameter is to be mutated.
 	 * @param a - the array of long integers to be sorted
 	 **/
-	public void mergeSort(long[] a);
+	public void mergeSort(long[] a) {
+		int n = q-p+1;
+		int m = r-q;
+		long[] an = new long[n];
+		long[] am = new long[m];
+		for(int i = 0; i<n; i++) {
+			an[i] = a[p+i];
+			count++;
+		}
+		for(int i = 0; i<m; i++){
+			am[i] = a[q+i+1];
+			count++;
+		}
+		int i = 0;
+		int j = 0;
+		for(int k = p; k<=r; k++){
+			if(i==n) a[k] = am[j++];
+			else if(j==m || an[i]<am[j]) a[k] = an[i++];
+			else a[k] = am[j++];
+			count++;
+		}
+	}
+	
+	private void mergeSort(long[] a, int p, int r)
+	{
+		if(p<r){
+			int i = (p+r)/2;
+			mergeSort(a,p,i);
+			mergeSort(a,i+1,r);
+			merge(a, p,i,r);
+		}
+	}
 	
 	/**
 	 * Executes the quicksort algorithm sorting the argument array.
