@@ -24,7 +24,9 @@ public class Sort {
 	 * There is no return as the parameter is to be mutated. 
 	 * @param a - the array of long integers to be sorted
 	 **/
-	public void insertionSort(long[] a);
+	public void insertionSort(long[] a) {
+		
+	}
 	
 	/**
 	 * Executes the merge sort algorithm sorting the argument array. 
@@ -54,6 +56,44 @@ public class Sort {
 		}
 	}
 	
+	/**
+	*A private method to merge the elements in the array between p and r.
+	*the array a, between the indices p and r, inclusive.
+	*Given the array is sorted between p and q and q+1 and r
+	*sorts the array between p and r.
+	*@param a the array to be sorted, which is mutated by the method
+	*@param p the lower index of the range to be partitioned
+	*@param q the midpoint of the two sorted sections.
+	*@param r the upper index of the range to be paritioned
+	*@return the index of the point of partition
+	**/
+	private void merge(long[] a, int p, int q, int r) {
+		int n = q-p+1;
+		int m = r-q;
+		long[] an = new long[n];
+		long[] am = new long[m];
+		for(int i = 0; i<n; i++) {
+			an[i] = a[p+i];
+			count++;
+		}
+		for(int i = 0; i<m; i++){
+			am[i] = a[q+i+1];
+			count++;
+		}
+		int i = 0;
+		int j = 0;
+		for(int k = p; k<=r; k++){
+			if(i==n) a[k] = am[j++];
+			else if(j==m || an[i]<am[j]) a[k] = an[i++];
+			else a[k] = am[j++];
+			count++;
+		}
+	}
+	
+	/**
+	 *Overloads the mergeSort method with parameters to set the 
+	 *range to be sorted.
+   	 **/ 
 	private void mergeSort(long[] a, int p, int r)
 	{
 		if(p<r){
@@ -69,7 +109,9 @@ public class Sort {
 	 * There is no return as the parameter is to be mutated.
 	 * @param a - the array of long integers to be sorted
 	 **/
-	public void quickSort(long[] a);
+	public void quickSort(long[] a) {
+		
+	}
 	
 	/**
 	 * Resets the counter variable to 0 
