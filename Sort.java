@@ -119,7 +119,6 @@ public class Sort {
 	 * @param a - the array of long integers to be sorted
 	 **/
 	public void quickSort(long[] a) {
-		
 	}
 	
 	/**
