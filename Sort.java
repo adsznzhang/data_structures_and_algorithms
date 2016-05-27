@@ -119,7 +119,30 @@ public class Sort {
 	 * @param a - the array of long integers to be sorted
 	 **/
 	public void quickSort(long[] a) {
+		quickSort(a, 0, a.length-1);
 	}
+	
+	private void quickSort(long[] a, int p, int r)
+	{
+		if (p < r) {
+			int q = partition(a,p,r);
+			quickSort(a,p,q-1);
+			quickSort(a,q,r);
+			count++;
+		}
+	}
+
+	private static int partition(long[] a, int p, int r){
+		int i = p;
+		for( int j = p; j < r; j++){
+			if (a[j] <= a[r]) {
+				exchange(a,i++,j);
+			}
+		}
+		exchange(a,i,r);
+		return i;
+	}
+
 	
 	/**
 	 * Resets the counter variable to 0 
