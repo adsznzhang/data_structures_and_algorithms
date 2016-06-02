@@ -43,26 +43,7 @@ public class Sort {
 	 * @param a - the array of long integers to be sorted
 	 **/
 	public void mergeSort(long[] a) {
-		int n = q-p+1;
-		int m = r-q;
-		long[] an = new long[n];
-		long[] am = new long[m];
-		for(int i = 0; i<n; i++) {
-			an[i] = a[p+i];
-			count++;
-		}
-		for(int i = 0; i<m; i++){
-			am[i] = a[q+i+1];
-			count++;
-		}
-		int i = 0;
-		int j = 0;
-		for(int k = p; k<=r; k++){
-			if(i==n) a[k] = am[j++];
-			else if(j==m || an[i]<am[j]) a[k] = an[i++];
-			else a[k] = am[j++];
-			count++;
-		}
+		mergeSort(a, 0, a.length-1);
 	}
 	
 	/**
@@ -143,6 +124,11 @@ public class Sort {
 		return i;
 	}
 
+	private static void exchange(long[] a, int x, int y){
+		long temp = a[x];
+		a[x] = a[y];
+		a[y] = temp;
+	}
 	
 	/**
 	 * Resets the counter variable to 0 
