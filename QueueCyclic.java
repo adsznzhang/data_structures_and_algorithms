@@ -54,6 +54,7 @@ public class QueueCyclic implements Queue{
 	 * first and last must be incremented until they reach 
 	 * the end of the array and then reduced to 0. 
 	 * @param a - the item to insert
+	 * @throws RuntimeException
 	 */
 	public void enqueue(Object a){
 		if (!isFull()){
